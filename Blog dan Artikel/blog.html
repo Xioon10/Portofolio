@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../asset/css/styles.css">
+    <link rel="stylesheet" href="../asset/css/styles_navbar.css">
+    <link rel="stylesheet" href="../asset/css/styles_footer.css">
+    <title>Blog - Arie Afriza</title>
+    <style>
+        .article-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .article-content.active {
+            display: block;
+            opacity: 1;
+        }
+        
+        .modal-dialog {
+            max-width: 800px;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .blog-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="../index.html" class="nav_logo">Arie</a>
+
+            <div class="nav_menu" id="nav-menu">
+                <ul class="nav_list grid">
+                    <li class="nav_item">
+                        <a href="../index.html#home" class="nav_link">
+                            <i class="uil uil-home nav_icon"></i> Beranda
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="../index.html#about" class="nav_link">
+                            <i class="uil uil-user-circle nav_icon"></i> Tentang
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="../index.html#skills" class="nav_link">
+                            <i class="uil uil-cog nav_icon"></i> Skill
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="../index.html#keunggulan" class="nav_link">
+                            <i class="uil uil-medal nav_icon"></i> Keunggulan
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="../index.html#portofolio" class="nav_link">
+                            <i class="uil uil-server nav_icon"></i> Portofolio
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="../index.html#testimoni" class="nav_link">
+                            <i class="uil uil-comment-alt-dots nav_icon"></i> Testimoni
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="../index.html#kontak" class="nav_link">
+                            <i class="uil uil-phone nav_icon"></i> Kontak
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="blog.html" class="nav_link active-link">
+                            <i class="uil uil-document-layout-left nav_icon"></i> Blog
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="artikel.php" class="nav_link active-link">
+                            <i class="uil uil-newspaper nav_icon"></i> Artikel
+                        </a>
+                    </li>
+                </ul>
+                <i class="uil uil-times nav_close" id="nav-close"></i>
+            </div>
+
+            <div class="nav_btns">
+                <div class="nav_toggle" id="nav-toggle">
+                    <i class="uil uil-list-ul"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main - Menggunakan Bootstrap -->
+    <main class="main bg-light py-5" style="margin-top: var(--header-height);">
+        <!-- BLOG HEADER -->
+        <section class="blog_header section mb-5">
+            <div class="container mt-5">
+                <h1 class="text-center mb-4">Blog Saya</h1>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card blog-card shadow-sm h-100">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" alt="Frontend Developer" class="card-img-top">
+                            <div class="card-body">
+                                <span class="badge bg-primary mb-2">Frontend Development</span>
+                                <h2 class="card-title h5 fw-bold">Perjalanan Saya Menjadi Frontend Developer</h2>
+                                <p class="card-text text-muted mb-3">
+                                    <i class="uil uil-calendar-alt"></i> 15 Mei 2023 &nbsp;
+                                    <i class="uil uil-clock"></i> 10 menit membaca
+                                </p>
+                                <p class="card-text">Perjalanan panjang dari nol hingga menjadi seorang frontend developer yang profesional. Belajar dari kesalahan dan terus mengembangkan skill...</p>
+                                <button class="btn btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#frontendModal">
+                                    Selengkapnya <i class="uil uil-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card blog-card shadow-sm h-100">
+                            <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Backend Development" class="card-img-top">
+                            <div class="card-body">
+                                <span class="badge bg-success mb-2">Backend Development</span>
+                                <h2 class="card-title h5 fw-bold">Belajar Backend: Kesalahan yang Sering Dilakukan Pemula</h2>
+                                <p class="card-text text-muted mb-3">
+                                    <i class="uil uil-calendar-alt"></i> 28 April 2023 &nbsp;
+                                    <i class="uil uil-clock"></i> 8 menit membaca
+                                </p>
+                                <p class="card-text">Kesalahan umum yang sering dilakukan saat belajar backend development dan bagaimana cara mengatasinya dengan efektif...</p>
+                                <button class="btn btn-outline-success mt-2" data-bs-toggle="modal" data-bs-target="#backendModal">
+                                    Selengkapnya <i class="uil uil-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card blog-card shadow-sm h-100">
+                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80" alt="UI/UX Design" class="card-img-top">
+                            <div class="card-body">
+                                <span class="badge bg-info mb-2">UI/UX Design</span>
+                                <h2 class="card-title h5 fw-bold">Bagaimana Saya Mendesain UI/UX yang Disukai Pengguna</h2>
+                                <p class="card-text text-muted mb-3">
+                                    <i class="uil uil-calendar-alt"></i> 10 Maret 2023 &nbsp;
+                                    <i class="uil uil-clock"></i> 7 menit membaca
+                                </p>
+                                <p class="card-text">Prinsip dasar dan teknik dalam mendesain UI/UX yang menarik dan memberikan pengalaman terbaik bagi pengguna...</p>
+                                <button class="btn btn-outline-info mt-2" data-bs-toggle="modal" data-bs-target="#uiuxModal">
+                                    Selengkapnya <i class="uil uil-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Modal Frontend -->
+    <div class="modal fade" id="frontendModal" tabindex="-1" aria-labelledby="frontendModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="frontendModalLabel">Perjalanan Saya Menjadi Frontend Developer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-4">
+                        <i class="uil uil-calendar-alt"></i> 15 Mei 2023 &nbsp;
+                        <i class="uil uil-clock"></i> 10 menit membaca &nbsp;
+                        <i class="uil uil-user"></i> Oleh Arie Afriza
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" alt="Frontend Developer Journey" class="img-fluid rounded mb-4">
+                    
+                    <p><strong>Awal Mula Perjalanan</strong></p>
+                    <p>Saya pertama kali mengenal dunia web development ketika melihat sebuah website interaktif yang menarik perhatian saya. Saat itu saya masih kuliah dan mulai mencari tahu bagaimana cara membuat website seperti itu. Dari sinilah perjalanan saya dimulai.</p>
+                    
+                    <p>Awalnya, saya hanya belajar dari tutorial dasar HTML dan CSS. Saya membuat beberapa halaman statis sederhana dan merasa sangat senang ketika berhasil membuat tombol berubah warna saat di-hover. Namun, seiring berjalannya waktu, saya mulai menyadari bahwa frontend development jauh lebih kompleks dari yang saya bayangkan.</p>
+                    
+                    <h2 class="h4 mt-4 mb-3">Tantangan yang Dihadapi</h2>
+                    <p>Dalam perjalanan menjadi seorang frontend developer, saya menghadapi berbagai tantangan:</p>
+                    <ul class="mb-4">
+                        <li class="mb-2"><strong>CSS dan responsivitas:</strong> Awalnya, saya sering mengalami tampilan yang tidak rapi di berbagai perangkat. Saya harus belajar flexbox, grid, dan media query untuk membuat website yang benar-benar responsif di semua ukuran layar.</li>
+                        <li class="mb-2"><strong>JavaScript terasa rumit:</strong> Saya kesulitan memahami DOM Manipulation dan Event Listener. Konsep closure, hoisting, dan asynchronous programming terasa sangat membingungkan. Saya menghabiskan banyak waktu untuk memahami konsep-konsep ini.</li>
+                        <li class="mb-2"><strong>Framework JavaScript:</strong> Ketika mulai belajar React, Vue, atau Angular, saya merasa seperti kembali ke titik nol. Konsep komponen, state, dan props membutuhkan perubahan cara berpikir dalam membangun aplikasi web.</li>
+                        <li class="mb-2"><strong>Optimasi website:</strong> Website pertama saya terasa lambat, sehingga saya mulai mempelajari teknik seperti lazy loading, code splitting, dan image optimization untuk meningkatkan performa website.</li>
+                    </ul>
+                    
+                    <h2 class="h4 mt-4 mb-3">Proyek Pertama dan Pembelajaran</h2>
+                    <p>Proyek pertama saya sebagai frontend developer adalah membuat landing page untuk sebuah startup lokal. Meskipun tampak sederhana, proyek ini mengajarkan saya banyak hal:</p>
+                    <ul class="mb-4">
+                        <li class="mb-2"><strong>Komunikasi dengan klien:</strong> Memahami kebutuhan dan ekspektasi klien adalah kunci keberhasilan proyek.</li>
+                        <li class="mb-2"><strong>Deadline dan manajemen waktu:</strong> Saya belajar untuk memecah proyek besar menjadi tugas-tugas kecil yang lebih mudah dikelola.</li>
+                        <li class="mb-2"><strong>Testing di berbagai perangkat:</strong> Penting untuk memastikan website berjalan dengan baik di semua browser dan perangkat.</li>
+                    </ul>
+                    
+                    <h2 class="h4 mt-4 mb-3">Teknik Belajar yang Efektif</h2>
+                    <p>Setelah bertahun-tahun, saya menemukan beberapa teknik belajar yang paling efektif:</p>
+                    <ol class="mb-4">
+                        <li class="mb-2"><strong>Praktik langsung:</strong> Jangan hanya membaca atau menonton tutorial, tetapi praktikkan langsung apa yang dipelajari.</li>
+                        <li class="mb-2"><strong>Bangun proyek nyata:</strong> Membangun proyek nyata adalah cara terbaik untuk menguasai keterampilan baru.</li>
+                        <li class="mb-2"><strong>Gabung komunitas developer:</strong> Berdiskusi dengan developer lain akan memperluas wawasan dan membuka peluang kolaborasi.</li>
+                        <li class="mb-2"><strong>Tetap update:</strong> Frontend development berkembang sangat cepat, jadi penting untuk terus mengikuti tren terbaru.</li>
+                    </ol>
+                    
+                    <h2 class="h4 mt-4 mb-3">Kesimpulan</h2>
+                    <p>Perjalanan menjadi seorang frontend developer bukanlah hal yang mudah, tetapi sangat memuaskan. Setiap tantangan yang saya hadapi telah membentuk saya menjadi developer yang lebih baik. Jika Anda sedang memulai perjalanan sebagai frontend developer, jangan pernah takut untuk membuat kesalahan dan terus belajar dari setiap pengalaman.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Backend -->
+    <div class="modal fade" id="backendModal" tabindex="-1" aria-labelledby="backendModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="backendModalLabel">Belajar Backend: Kesalahan yang Sering Dilakukan Pemula</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-4">
+                        <i class="uil uil-calendar-alt"></i> 28 April 2023 &nbsp;
+                        <i class="uil uil-clock"></i> 8 menit membaca &nbsp;
+                        <i class="uil uil-user"></i> Oleh Arie Afriza
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Backend Development" class="img-fluid rounded mb-4">
+                    
+                    <p>Ketika pertama kali belajar backend, saya berpikir bahwa tugasnya hanya menghubungkan database dengan frontend. Namun, saya segera menyadari bahwa backend development jauh lebih kompleks dan memiliki tanggung jawab yang besar terhadap keamanan dan kinerja aplikasi.</p>
+                    
+                    <h2 class="h4 mt-4 mb-3">Kesalahan Umum</h2>
+                    <p>Sebagai seorang mentor bagi banyak pemula, saya melihat beberapa kesalahan yang sering terjadi:</p>
+                    <ul class="mb-4">
+                        <li class="mb-2"><strong>Struktur database yang buruk:</strong> Saya awalnya membuat tabel database dengan struktur yang tidak efisien. Kesalahan dalam perencanaan database dapat menyebabkan masalah serius saat aplikasi berkembang. Penting untuk memahami normalisasi database dan merancang skema yang fleksibel.</li>
+                        <li class="mb-2"><strong>Keamanan API:</strong> API yang saya buat dulu dapat diakses siapa saja tanpa autentikasi. Ini adalah kesalahan serius! Backend developer harus selalu menerapkan autentikasi, validasi input, dan teknik keamanan lainnya untuk melindungi data pengguna.</li>
+                        <li class="mb-2"><strong>Kurangnya debugging:</strong> Saya belajar pentingnya menggunakan Postman untuk menguji API. Tanpa alat debugging yang tepat, sangat sulit untuk menemukan dan memperbaiki bug di aplikasi backend.</li>
+                        <li class="mb-2"><strong>Mengabaikan dokumentasi:</strong> Sering kali, pemula tidak mendokumentasikan API mereka dengan baik. Dokumentasi yang jelas sangat penting untuk tim frontend yang akan menggunakan API tersebut.</li>
+                    </ul>
+                    
+                    <h2 class="h4 mt-4 mb-3">Memilih Teknologi yang Tepat</h2>
+                    <p>Salah satu keputusan penting dalam backend development adalah memilih teknologi yang tepat:</p>
+                    <ul class="mb-4">
+                        <li class="mb-2"><strong>Bahasa pemrograman:</strong> Node.js, Python, PHP, Java, dan Ruby on Rails adalah pilihan populer. Masing-masing memiliki kelebihan dan kekurangan tersendiri.</li>
+                        <li class="mb-2"><strong>Database:</strong> Pilihan antara SQL (MySQL, PostgreSQL) dan NoSQL (MongoDB, Redis) harus disesuaikan dengan kebutuhan proyek.</li>
+                        <li class="mb-2"><strong>Framework:</strong> Framework seperti Express.js (Node.js), Django (Python), atau Laravel (PHP) dapat mempercepat pengembangan.</li>
+                    </ul>
+                    
+                    <h2 class="h4 mt-4 mb-3">Praktik Terbaik</h2>
+                    <p>Berdasarkan pengalaman saya, berikut adalah beberapa praktik terbaik dalam backend development:</p>
+                    <ol class="mb-4">
+                        <li class="mb-2"><strong>Validasi input:</strong> Selalu validasi semua data yang diterima dari pengguna untuk mencegah serangan injeksi.</li>
+                        <li class="mb-2"><strong>Gunakan ORM:</strong> Object-Relational Mapping (ORM) dapat membuat kode lebih bersih dan mengurangi risiko SQL injection.</li>
+                        <li class="mb-2"><strong>Implementasikan caching:</strong> Caching dapat meningkatkan kinerja aplikasi secara signifikan.</li>
+                        <li class="mb-2"><strong>Rate limiting:</strong> Terapkan pembatasan API untuk mencegah serangan DoS.</li>
+                        <li class="mb-2"><strong>Logging yang baik:</strong> Log yang terstruktur akan sangat membantu saat terjadi masalah.</li>
+                    </ol>
+                    
+                    <h2 class="h4 mt-4 mb-3">Kesimpulan</h2>
+                    <p>Backend development adalah bidang yang kompleks tetapi sangat menarik. Dengan memahami kesalahan umum dan menerapkan praktik terbaik, Anda dapat membangun aplikasi yang aman, scalable, dan berkinerja tinggi. Jangan takut untuk membuat kesalahan, karena itulah cara terbaik untuk belajar dan berkembang sebagai backend developer.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal UI/UX -->
+    <div class="modal fade" id="uiuxModal" tabindex="-1" aria-labelledby="uiuxModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="uiuxModalLabel">Bagaimana Saya Mendesain UI/UX yang Disukai Pengguna</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-muted mb-4">
+                        <i class="uil uil-calendar-alt"></i> 10 Maret 2023 &nbsp;
+                        <i class="uil uil-clock"></i> 7 menit membaca &nbsp;
+                        <i class="uil uil-user"></i> Oleh Arie Afriza
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80" alt="UI/UX Design" class="img-fluid rounded mb-4">
+                    
+                    <p>Membuat desain yang menarik bukan hanya tentang estetika, tetapi juga tentang bagaimana pengguna berinteraksi dengan produk Anda. Dalam perjalanan saya sebagai UI/UX designer, saya telah belajar bahwa desain yang baik adalah desain yang memudahkan pengguna untuk mencapai tujuan mereka.</p>
+                    
+                    <h2 class="h4 mt-4 mb-3">Prinsip yang Saya Terapkan</h2>
+                    <p>Berikut adalah beberapa prinsip UI/UX yang selalu saya terapkan dalam setiap proyek:</p>
+                    <ul class="mb-4">
+                        <li class="mb-2"><strong>Konsistensi desain:</strong> Warna, font, dan elemen UI tetap selaras di seluruh aplikasi. Konsistensi membuat pengguna merasa nyaman dan mengurangi kurva pembelajaran.</li>
+                        <li class="mb-2"><strong>Navigasi yang jelas:</strong> Pengguna harus dapat menemukan fitur dengan mudah. Desain navigasi yang intuitif adalah kunci dari pengalaman pengguna yang baik.</li>
+                        <li class="mb-2"><strong>Aksesibilitas:</strong> Saya memastikan desain ramah bagi semua pengguna, termasuk mereka yang memiliki keterbatasan. Ini termasuk kontras warna yang baik, ukuran teks yang cukup besar, dan alternatif untuk konten visual.</li>
+                        <li class="mb-2"><strong>Umpan balik visual:</strong> Pengguna harus selalu tahu apa yang terjadi di aplikasi. Umpan balik seperti animasi, notifikasi, atau perubahan status sangat penting.</li>
+                        <li class="mb-2"><strong>Desain minimalis:</strong> Saya menghindari desain yang terlalu kompleks atau berlebihan. Fokus pada yang penting dan hapus elemen yang tidak perlu.</li>
+                    </ul>
+                    
+                    <h2 class="h4 mt-4 mb-3">Proses Desain UI/UX</h2>
+                    <p>Proses desain UI/UX yang saya ikuti biasanya terdiri dari beberapa tahap:</p>
+                    <ol class="mb-4">
+                        <li class="mb-2"><strong>Riset dan pemahaman pengguna:</strong> Memahami siapa pengguna aplikasi dan apa kebutuhan mereka adalah langkah pertama yang penting.</li>
+                        <li class="mb-2"><strong>Wireframing:</strong> Membuat sketsa kasar dari antarmuka untuk mendapatkan gambaran umum tentang struktur dan layout.</li>
+                        <li class="mb-2"><strong>Prototyping:</strong> Membuat versi interaktif dari wireframe untuk menguji alur dan interaksi pengguna.</li>
+                        <li class="mb-2"><strong>User testing:</strong> Mengamati bagaimana pengguna berinteraksi dengan prototype dan mengumpulkan feedback.</li>
+                        <li class="mb-2"><strong>Visual design:</strong> Mengembangkan tampilan visual final dengan memperhatikan warna, tipografi, dan elemen desain lainnya.</li>
+                        <li class="mb-2"><strong>Implementasi dan iterasi:</strong> Bekerja sama dengan developer untuk mengimplementasikan desain dan melakukan perbaikan berdasarkan feedback.</li>
+                    </ol>
+                    
+                    <h2 class="h4 mt-4 mb-3">Studi Kasus: Redesain Aplikasi E-commerce</h2>
+                    <p>Salah satu proyek yang paling menantang adalah redesain aplikasi e-commerce. Aplikasi ini memiliki banyak alur kompleks, seperti pencarian, filter, checkout, dan pembayaran.</p>
+                    <p>Tantangan utama adalah membuat alur ini sesederhana mungkin tanpa mengurangi fungsionalitas. Beberapa perubahan yang saya lakukan:</p>
+                    <ul class="mb-4">
+                        <li class="mb-2"><strong>Menyederhanakan proses checkout:</strong> Mengurangi jumlah langkah dari 5 menjadi 3 tanpa menghilangkan informasi penting.</li>
+                        <li class="mb-2"><strong>Meningkatkan pencarian:</strong> Menambahkan fitur autocomplete dan filter visual yang lebih intuitif.</li>
+                        <li class="mb-2"><strong>Memperbaiki tampilan produk:</strong> Fokus pada gambar produk yang berkualitas dan informasi yang paling relevan bagi pengguna.</li>
+                    </ul>
+                    <p>Hasilnya, conversion rate meningkat sebesar 24% dan bounce rate menurun 15%. Ini menunjukkan betapa pentingnya UI/UX yang baik dalam keberhasilan suatu produk.</p>
+                    
+                    <h2 class="h4 mt-4 mb-3">Kesimpulan</h2>
+                    <p>Desain UI/UX yang baik tidak terjadi secara kebetulan. Dibutuhkan pemahaman mendalam tentang pengguna, prinsip desain yang kuat, dan proses yang terstruktur. Sebagai desainer, tugas kita adalah membuat produk yang tidak hanya cantik, tetapi juga mudah dan menyenangkan untuk digunakan.</p>
+                    <p>Selalu ingat bahwa desain terbaik adalah desain yang hampir tidak terlihat—produk yang begitu intuitif sehingga pengguna tidak perlu berpikir saat menggunakannya.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FOOTER - Menggunakan CSS dari styles_footer.css -->
+    <footer class="footer">
+        <div class="footer_bg">
+            <div class="footer_container container">
+                <div class="footer_info">
+                    <!-- About -->
+                    <div class="footer_group">
+                        <h3 class="footer_group-title">Tentang Saya</h3>
+                        <p>Frontend Developer yang berfokus pada pengembangan website dengan UI/UX yang menarik dan responsif.</p>
+                        <div class="footer_social-container">
+                            <a href="https://github.com/Xioon10" target="_blank" class="footer_social">
+                                <i class="uil uil-github-alt"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/arie-afriza-771837351/" target="_blank" class="footer_social">
+                                <i class="uil uil-linkedin-alt"></i>
+                            </a>
+                            <a href="https://www.instagram.com/rieafrzan" target="_blank" class="footer_social">
+                                <i class="uil uil-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer_group">
+                        <h3 class="footer_group-title">Menu Utama</h3>
+                        <ul class="footer_links">
+                            <li><a href="../index.html#home" class="footer_link"><i class="uil uil-home"></i> Beranda</a></li>
+                            <li><a href="../index.html#about" class="footer_link"><i class="uil uil-user-circle"></i> Tentang</a></li>
+                            <li><a href="../index.html#skills" class="footer_link"><i class="uil uil-cog"></i> Skill</a></li>
+                            <li><a href="../index.html#portofolio" class="footer_link"><i class="uil uil-server"></i> Portofolio</a></li>
+                            <li><a href="../index.html#kontak" class="footer_link"><i class="uil uil-phone"></i> Kontak</a></li>
+                            <li><a href="blog.html" class="footer_link"><i class="uil uil-document-layout-left"></i> Blog</a></li>
+                            <li><a href="artikel.php" class="footer_link"><i class="uil uil-newspaper"></i> Artikel</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="footer_group">
+                        <h3 class="footer_group-title">Kontak</h3>
+                        <div class="footer_contact">
+                            <p><i class="uil uil-phone"></i>081235647</p>
+                            <p><i class="uil uil-envelope"></i>arieafriza09@gmail.com</p>
+                            <p><i class="uil uil-map-marker"></i>Tasikmalaya, Indonesia</p>
+                        </div>
+                    </div>
+
+                    <div class="footer_group">
+                        <h3 class="footer_group-title">Legal</h3>
+                        <ul class="footer_links">
+                            <li><a href="#" class="footer_link"><i class="uil uil-shield-check"></i>Kebijakan Privasi</a></li>
+                            <li><a href="#" class="footer_link"><i class="uil uil-file-contract"></i>Syarat & Ketentuan</a></li>
+                            <li><a href="#" class="footer_link"><i class="uil uil-sitemap"></i>Peta Situs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p class="footer_copy">&#169; Arie Afriza. All rights reserved 2024</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        /* Navbar Mobile */
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navClose = document.getElementById('nav-close');
+
+        /* Menu tampil */
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.add('show-menu');
+            });
+        }
+
+        /* Menu hilang */
+        if (navClose) {
+            navClose.addEventListener('click', () => {
+                navMenu.classList.remove('show-menu');
+            });
+        }
+
+        /* Jika menu item di klik menu akan hilang */
+        const navLink = document.querySelectorAll('.nav_link');
+
+        function linkAction() {
+            navMenu.classList.remove('show-menu');
+        }
+
+        navLink.forEach(n => n.addEventListener('click', linkAction));
+
+        /* Scroll header effect */
+        function scrollHeader() {
+            const header = document.getElementById('header');
+            if (this.scrollY >= 80) {
+                header.classList.add('scroll-header');
+            } else {
+                header.classList.remove('scroll-header');
+            }
+        }
+        window.addEventListener('scroll', scrollHeader);
+        
+        /* Handle modals */
+        document.querySelectorAll('[data-bs-toggle="modal"]').forEach(button => {
+            button.addEventListener('click', function() {
+                const target = this.getAttribute('data-bs-target');
+                const modalBody = document.querySelector(`${target} .modal-body`);
+                
+                if (modalBody) {
+                    // Scroll to top when modal is opened
+                    setTimeout(() => {
+                        modalBody.scrollTop = 0;
+                    }, 200);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
